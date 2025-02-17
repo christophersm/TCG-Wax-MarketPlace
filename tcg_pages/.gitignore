@@ -1,0 +1,55 @@
+# Ignore database files
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore Django database files
+db.sqlite3
+db.sqlite3-journal
+
+# Ignore environment variables and settings
+.env
+*.env
+
+# Ignore Django migration files (optional, but usually kept in version control)
+# Uncomment the next line if you want to ignore migrations
+# */migrations/*.py
+# */migrations/*.pyc
+
+# Ignore media and static files
+/media/
+/staticfiles/
+/static/
+
+# Ignore IDE and editor-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore virtual environments
+venv/
+.env/
+*.venv/
+
+# Ignore log files and temp files
+*.log
+*.swp
+
+# Ignore compiled files
+*.so
+*.egg-info/
+
+# Ignore coverage and test-related files
+.coverage
+htmlcov/
+*.pytest_cache/
+
+# Ignore Node.js files if using frontend tools
+node_modules/
+
+# Ignore Docker and deployment-related files (if applicable)
+*.dockerignore
+.envrc
+docker-compose.override.yml

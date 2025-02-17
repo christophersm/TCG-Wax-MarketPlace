@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome to The TCG Wax Marketplace!</h1>
+    <p>Track your favorite trading cards with ease.</p>
+    <hr>
+    <br>
+    <ul style="list-style: none; padding: 0;">
+        <li><a href="{% url 'price_guide' %}">TCG Price Guide</a></li>
+        <li><a href="{% url 'my_collection' %}">My Collection</a></li>
+        <li><a href="{% url 'card_sniper' %}">The TCG Card Sniper</a></li>
+    </ul>
+{% endblock %}

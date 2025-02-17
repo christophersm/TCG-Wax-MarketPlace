@@ -1,0 +1,451 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>My Collection</h1>
+
+    <!-- Tab links -->
+    <div class="tabs">
+        <a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'pokemon_collection')">Pokemon</a>
+        <a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'lorcana_collection')">Lorcana</a>
+        <a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'wwe_collection')">WWE</a>
+        <a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'magic_tg_collection')">Magic The Gathering</a>
+        <a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'digimon_collection')">Digimon</a>
+    </div>
+
+    <!-- Tab content for Pokemon -->
+    <div id="pokemon_collection" class="tabcontent">
+        <h3>Pokemon Collection</h3>
+
+        <!-- Button to show input form -->
+        <button id="showPokemonFormBtn">Add New Card</button>
+
+        <!-- The form for adding a new card (hidden by default) -->
+        <div id="pokemonCardForm" style="display: none;">
+            <h4>Enter New Card Info</h4>
+            <label for="cardName">Name:</label>
+            <input type="text" id="cardName" placeholder="Card Name"><br><br>
+            
+            <label for="cardYear">Year:</label>
+            <input type="number" id="cardYear" placeholder="Year"><br><br>
+            
+            <label for="cardManufacturer">Manufacturer:</label>
+            <input type="text" id="cardManufacturer" placeholder="Manufacturer"><br><br>
+            
+            <label for="cardSet">Set:</label>
+            <input type="text" id="cardSet" placeholder="Set"><br><br>
+
+            <label for="cardNumber">Card #:</label>
+            <input type="text" id="cardNumber" placeholder="Card #"><br><br>
+            
+            <label for="cardVersion">Version:</label>
+            <input type="text" id="cardVersion" placeholder="Version"><br><br>
+            
+            <label for="cardRarity">Rarity:</label>
+            <input type="text" id="cardRarity" placeholder="Rarity"><br><br>
+
+            <label for="cardImage">Image:</label>
+            <input type="file" id="cardImage"><br><br>
+            
+            <button id="addCardBtn">ADD</button>
+        </div>
+
+        <!-- Table to display the cards -->
+        <div class="table-responsive">
+            <table id="pokemonTable" border="1">
+                <thead>
+                    <tr>
+                        <th>Image</th> <!-- Moved Image to first column -->
+                        <th>Name</th>
+                        <th>Year</th>
+                        <th>Manufacturer</th>
+                        <th>Set</th>
+                        <th>Card #</th>
+                        <th>Version</th>
+                        <th>Rarity</th>
+                        <th>Remove Card</th> <!-- Changed Action to Remove Card -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Cards will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tab content for Lorcana -->
+    <div id="lorcana_collection" class="tabcontent">
+        <h3>Lorcana Collection</h3>
+
+        <!-- Button to show input form -->
+        <button id="showLorcanaFormBtn">Add New Card</button>
+
+        <!-- The form for adding a new card (hidden by default) -->
+        <div id="lorcanaCardForm" style="display: none;">
+            <h4>Enter New Card Info</h4>
+            <label for="lorcanaCardName">Name:</label>
+            <input type="text" id="lorcanaCardName" placeholder="Card Name"><br><br>
+            
+            <label for="lorcanaCardYear">Year:</label>
+            <input type="number" id="lorcanaCardYear" placeholder="Year"><br><br>
+            
+            <label for="lorcanaCardManufacturer">Manufacturer:</label>
+            <input type="text" id="lorcanaCardManufacturer" placeholder="Manufacturer"><br><br>
+            
+            <label for="lorcanaCardSet">Set:</label>
+            <input type="text" id="lorcanaCardSet" placeholder="Set"><br><br>
+
+            <label for="lorcanaCardNumber">Card #:</label>
+            <input type="text" id="lorcanaCardNumber" placeholder="Card #"><br><br>
+            
+            <label for="lorcanaCardVersion">Version:</label>
+            <input type="text" id="lorcanaCardVersion" placeholder="Version"><br><br>
+            
+            <label for="lorcanaCardRarity">Rarity:</label>
+            <input type="text" id="lorcanaCardRarity" placeholder="Rarity"><br><br>
+
+            <label for="lorcanaCardImage">Image:</label>
+            <input type="file" id="lorcanaCardImage"><br><br>
+            
+            <button id="addLorcanaCardBtn">ADD</button>
+        </div>
+
+        <!-- Table to display the cards -->
+        <div class="table-responsive">
+            <table id="lorcanaTable" border="1">
+                <thead>
+                    <tr>
+                        <th>Image</th> <!-- Moved Image to first column -->
+                        <th>Name</th>
+                        <th>Year</th>
+                        <th>Manufacturer</th>
+                        <th>Set</th>
+                        <th>Card #</th>
+                        <th>Version</th>
+                        <th>Rarity</th>
+                        <th>Remove Card</th> <!-- Changed Action to Remove Card -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Cards will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tab content for WWE -->
+    <div id="wwe_collection" class="tabcontent">
+        <h3>WWE Collection</h3>
+
+        <!-- Button to show input form -->
+        <button id="showWweFormBtn">Add New Card</button>
+
+        <!-- The form for adding a new card (hidden by default) -->
+        <div id="wweCardForm" style="display: none;">
+            <h4>Enter New Card Info</h4>
+            <label for="wweCardName">Name:</label>
+            <input type="text" id="wweCardName" placeholder="Card Name"><br><br>
+            
+            <label for="wweCardYear">Year:</label>
+            <input type="number" id="wweCardYear" placeholder="Year"><br><br>
+            
+            <label for="wweCardManufacturer">Manufacturer:</label>
+            <input type="text" id="wweCardManufacturer" placeholder="Manufacturer"><br><br>
+            
+            <label for="wweCardSet">Set:</label>
+            <input type="text" id="wweCardSet" placeholder="Set"><br><br>
+
+            <label for="wweCardNumber">Card #:</label>
+            <input type="text" id="wweCardNumber" placeholder="Card #"><br><br>
+            
+            <label for="wweCardVersion">Version:</label>
+            <input type="text" id="wweCardVersion" placeholder="Version"><br><br>
+            
+            <label for="wweCardRarity">Rarity:</label>
+            <input type="text" id="wweCardRarity" placeholder="Rarity"><br><br>
+
+            <label for="wweCardImage">Image:</label>
+            <input type="file" id="wweCardImage"><br><br>
+            
+            <button id="addWweCardBtn">ADD</button>
+        </div>
+
+        <!-- Table to display the cards -->
+        <div class="table-responsive">
+            <table id="wweTable" border="1">
+                <thead>
+                    <tr>
+                        <th>Image</th> <!-- Moved Image to first column -->
+                        <th>Name</th>
+                        <th>Year</th>
+                        <th>Manufacturer</th>
+                        <th>Set</th>
+                        <th>Card #</th>
+                        <th>Version</th>
+                        <th>Rarity</th>
+                        <th>Remove Card</th> <!-- Changed Action to Remove Card -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Cards will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tab content for Magic TG -->
+    <div id="magic_tg_collection" class="tabcontent">
+        <h3>Magic The Gathering Collection</h3>
+
+        <!-- Button to show input form -->
+        <button id="showMagicFormBtn">Add New Card</button>
+
+        <!-- The form for adding a new card (hidden by default) -->
+        <div id="magicCardForm" style="display: none;">
+            <h4>Enter New Card Info</h4>
+            <label for="magicCardName">Name:</label>
+            <input type="text" id="magicCardName" placeholder="Card Name"><br><br>
+            
+            <label for="magicCardYear">Year:</label>
+            <input type="number" id="magicCardYear" placeholder="Year"><br><br>
+            
+            <label for="magicCardManufacturer">Manufacturer:</label>
+            <input type="text" id="magicCardManufacturer" placeholder="Manufacturer"><br><br>
+            
+            <label for="magicCardSet">Set:</label>
+            <input type="text" id="magicCardSet" placeholder="Set"><br><br>
+
+            <label for="magicCardNumber">Card #:</label>
+            <input type="text" id="magicCardNumber" placeholder="Card #"><br><br>
+            
+            <label for="magicCardVersion">Version:</label>
+            <input type="text" id="magicCardVersion" placeholder="Version"><br><br>
+            
+            <label for="magicCardRarity">Rarity:</label>
+            <input type="text" id="magicCardRarity" placeholder="Rarity"><br><br>
+
+            <label for="magicCardImage">Image:</label>
+            <input type="file" id="magicCardImage"><br><br>
+            
+            <button id="AddMagicCardBtn">ADD</button>
+        </div>
+
+        <!-- Table to display the cards -->
+        <div class="table-responsive">
+            <table id="magicTable" border="1">
+                <thead>
+                    <tr>
+                        <th>Image</th> <!-- Moved Image to first column -->
+                        <th>Name</th>
+                        <th>Year</th>
+                        <th>Manufacturer</th>
+                        <th>Set</th>
+                        <th>Card #</th>
+                        <th>Version</th>
+                        <th>Rarity</th>
+                        <th>Remove Card</th> <!-- Changed Action to Remove Card -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Cards will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tab content for Digimon -->
+    <div id="digimon_collection" class="tabcontent">
+        <h3>Digimon Collection</h3>
+
+        <!-- Button to show input form -->
+        <button id="showDigimonFormBtn">Add New Card</button>
+
+        <!-- The form for adding a new card (hidden by default) -->
+        <div id="digimonCardForm" style="display: none;">
+            <h4>Enter New Card Info</h4>
+            <label for="digimonCardName">Name:</label>
+            <input type="text" id="digimonCardName" placeholder="Card Name"><br><br>
+            
+            <label for="digimonCardYear">Year:</label>
+            <input type="number" id="digimonCardYear" placeholder="Year"><br><br>
+            
+            <label for="digimonCardManufacturer">Manufacturer:</label>
+            <input type="text" id="digimonCardManufacturer" placeholder="Manufacturer"><br><br>
+            
+            <label for="digimonCardSet">Set:</label>
+            <input type="text" id="digimonCardSet" placeholder="Set"><br><br>
+
+            <label for="digimonCardNumber">Card #:</label>
+            <input type="text" id="digimonCardNumber" placeholder="Card #"><br><br>
+            
+            <label for="digimonCardVersion">Version:</label>
+            <input type="text" id="digimonCardVersion" placeholder="Version"><br><br>
+            
+            <label for="digimonCardRarity">Rarity:</label>
+            <input type="text" id="digimonCardRarity" placeholder="Rarity"><br><br>
+
+            <label for="digimonCardImage">Image:</label>
+            <input type="file" id="digimonCardImage"><br><br>
+            
+            <button id="AddDigimonCardBtn">ADD</button>
+        </div>
+
+        <!-- Table to display the cards -->
+        <div class="table-responsive">
+            <table id="magicTable" border="1">
+                <thead>
+                    <tr>
+                        <th>Image</th> <!-- Moved Image to first column -->
+                        <th>Name</th>
+                        <th>Year</th>
+                        <th>Manufacturer</th>
+                        <th>Set</th>
+                        <th>Card #</th>
+                        <th>Version</th>
+                        <th>Rarity</th>
+                        <th>Remove Card</th> <!-- Changed Action to Remove Card -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Cards will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle switching between tabs
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        
+        // Function to show/hide forms based on the collection
+        function toggleForm(collection) {
+            var form = document.getElementById(collection + 'CardForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
+        
+        // Function to add card to the corresponding table
+        function addCard(collection) {
+            var cardName = document.getElementById(collection + 'CardName').value;
+            var cardYear = document.getElementById(collection + 'CardYear').value;
+            var cardManufacturer = document.getElementById(collection + 'CardManufacturer').value;
+            var cardSet = document.getElementById(collection + 'CardSet').value;
+            var cardNumber = document.getElementById(collection + 'CardNumber').value;
+            var cardVersion = document.getElementById(collection + 'CardVersion').value;
+            var cardRarity = document.getElementById(collection + 'CardRarity').value;
+            var cardImage = document.getElementById(collection + 'CardImage').files[0];
+        
+            if (cardName && cardYear && cardManufacturer && cardSet && cardNumber && cardVersion && cardRarity) {
+                // Create a new row for the card
+                var row = document.createElement('tr');
+        
+                // Create cells for each card attribute
+                var imageCell = document.createElement('td');
+                var img = document.createElement('img');
+                img.src = URL.createObjectURL(cardImage);
+                img.alt = cardName;
+                img.style.width = "50px";
+                img.style.height = "50px";
+                imageCell.appendChild(img);
+        
+                var nameCell = document.createElement('td');
+                nameCell.textContent = cardName;
+        
+                var yearCell = document.createElement('td');
+                yearCell.textContent = cardYear;
+        
+                var manufacturerCell = document.createElement('td');
+                manufacturerCell.textContent = cardManufacturer;
+        
+                var setCell = document.createElement('td');
+                setCell.textContent = cardSet;
+        
+                var numberCell = document.createElement('td');
+                numberCell.textContent = cardNumber;
+        
+                var versionCell = document.createElement('td');
+                versionCell.textContent = cardVersion;
+        
+                var rarityCell = document.createElement('td');
+                rarityCell.textContent = cardRarity;
+        
+                var removeCell = document.createElement('td');
+                var removeBtn = document.createElement('button');
+                removeBtn.textContent = "Remove";
+                removeBtn.onclick = function() {
+                    row.remove();
+                };
+                removeCell.appendChild(removeBtn);
+        
+                // Append all the cells to the row
+                row.appendChild(imageCell);
+                row.appendChild(nameCell);
+                row.appendChild(yearCell);
+                row.appendChild(manufacturerCell);
+                row.appendChild(setCell);
+                row.appendChild(numberCell);
+                row.appendChild(versionCell);
+                row.appendChild(rarityCell);
+                row.appendChild(removeCell);
+        
+                // Append the row to the corresponding table
+                var table = document.getElementById(collection + 'Table');
+                table.querySelector('tbody').appendChild(row);
+        
+                // Clear the form fields after submission
+                document.getElementById(collection + 'CardForm').style.display = 'none';
+                document.getElementById(collection + 'CardForm').reset();
+            } else {
+                alert("Please fill out all fields.");
+            }
+        }
+        
+        // Event listeners for show/hide buttons
+        document.getElementById('showPokemonFormBtn').addEventListener('click', function() {
+            toggleForm('pokemon');
+        });
+        document.getElementById('showLorcanaFormBtn').addEventListener('click', function() {
+            toggleForm('lorcana');
+        });
+        document.getElementById('showWweFormBtn').addEventListener('click', function() {
+            toggleForm('wwe');
+        });
+        document.getElementById('showMagicFormBtn').addEventListener('click', function() {
+            toggleForm('magic');
+        });
+        document.getElementById('showDigimonFormBtn').addEventListener('click', function() {
+            toggleForm('digimon');
+        });
+        
+        // Event listeners for add card buttons
+        document.getElementById('addPokemonCardBtn').addEventListener('click', function() {
+            addCard('pokemon');
+        });
+        document.getElementById('addLorcanaCardBtn').addEventListener('click', function() {
+            addCard('lorcana');
+        });
+        document.getElementById('addWweCardBtn').addEventListener('click', function() {
+            addCard('wwe');
+        });
+        document.getElementById('addMagicCardBtn').addEventListener('click', function() {
+            addCard('magic');
+        });
+        document.getElementById('addDigimonCardBtn').addEventListener('click', function() {
+            addCard('digimon');
+        });
+    </script>
+        
+
+            <!-- Link back to the main (landing) page -->
+            <a href="{% url 'landing' %}">Back to Main Page</a>
+{% endblock %}
